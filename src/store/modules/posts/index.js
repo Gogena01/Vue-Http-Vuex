@@ -1,4 +1,4 @@
-import postServices from "../../services/postServices";
+import postServices from "@/services/postServices.js";
 import getters from "./getters";
 import mutations from "./mutations";
 

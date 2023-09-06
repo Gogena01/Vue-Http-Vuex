@@ -20,6 +20,7 @@
   
 <script>
 import CatalogItem from '@/UI/CatalogItem.vue';
+import { mapGetters } from 'vuex';
 export default {
     components: {
         CatalogItem
@@ -41,39 +42,40 @@ export default {
 
 
     computed: {
-        totalPages() {
-            console.log(this.elementsCount.length / this.entriesPage);
-            return Math.ceil(this.elementsCount.length / this.entriesPage)
-        },
+          
+        ...mapGetters(['totalPages', 'nextButtonIsDisabled', 'previousButtonDisabled', 'pageOfPages', 'currentPageItems'])
+        // totalPages() {
+        //     return Math.ceil(this.elementsCount.length / this.entriesPage)
+        // },
 
-        currentPageItems() {
-            console.log(this.elementsCount);
-            const startIndex = (this.currentPage - 1) * this.entriesPage;
-            return this.elementsCount.slice(startIndex, startIndex + this.entriesPage)
-        },
+        // currentPageItems() {
+        //     const startIndex = (this.currentPage - 1) * this.entriesPage;
+        //     return this.elementsCount.slice(startIndex, startIndex + this.entriesPage)
+        // },
 
-        nextButtonIsDisabled() {
-            return this.currentPage === this.totalPages
-        },
+        // nextButtonIsDisabled() {
+        //     return this.currentPage === this.totalPages
+        // },
 
-        previousButtonDisabled() {
-            return this.currentPage === 1;
-        },
+        // previousButtonDisabled() {
+        //     return this.currentPage === 1;
+        // },
 
-        pageOfPages() {
-            return `${this.currentPage} / ${this.totalPages}`
-        }
+        // pageOfPages() {
+        //     return `${this.currentPage} / ${this.totalPages}`
+        // }
     },
 
 
     methods: {
         changePage(direction) {
-            this.$emit('update:currentPage', this.currentPage + direction)
+            this.$store.dispatch('changeDirection', direction)
+            // this.$emit('update:currentPage', this.currentPage + direction)
         },
 
-        goToPage(page) {
-            this.$emit('update:currentPage', page)
-        }
+        // goToPage(page) {
+        //     this.$emit('update:currentPage', page)
+        // }
     }
 
 }

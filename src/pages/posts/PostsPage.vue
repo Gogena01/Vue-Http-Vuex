@@ -8,7 +8,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import PaginatorComp from '../components/PaginatorComp.vue';
+import PaginatorComp from '@/components/PaginatorComp.vue';
 
 export default {
     components: {

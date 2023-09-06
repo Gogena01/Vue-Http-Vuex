@@ -6,7 +6,7 @@ export default [
         },
 
 
-        component: () => import('@/pages/PostsPage.vue'),
+        component: () => import('@/pages/posts/PostsPage.vue'),
         children: [
             {
                 name:'singlePost',

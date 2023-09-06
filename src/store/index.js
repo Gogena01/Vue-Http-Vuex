@@ -1,9 +1,12 @@
 import { createStore } from "vuex";
-import posts from "./modules/posts";
+import postsModule from "./modules/posts/index";
+import paginatorModule from "./modules/paginator";
 
 const store = createStore({
+    namespaced:true,
     modules: {
-        posts:posts
+        posts:postsModule,
+        paginator:paginatorModule
     }
 })
 
