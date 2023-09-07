@@ -1,18 +1,28 @@
 <template>
     <h2>Posts page</h2>
     <router-view></router-view>
-    <paginator-comp v-if="postsData !== null" :elementsCount="postsData" :entriesPage="20"
-        v-model:currentPage="currPage" @update="pageDirection"></paginator-comp>
+    <paginator-comp v-if="postsData !== null" :elementsCount="postsData" v-slot="{ currentPageItems }">
+        <catalog-item v-for="(post, index) in currentPageItems">
+            <template #title>
+                <h3>{{ post.title }}</h3>
+            </template>
+            <template #button>
+                <router-link :to="{ name: 'singlePost', params: { id: post.id } }">View Details</router-link>
+            </template>
+        </catalog-item>
+    </paginator-comp>
     <h2 v-else>Loading...</h2>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
+import CatalogItem from '@/UI/CatalogItem.vue';
 import PaginatorComp from '@/components/PaginatorComp.vue';
 
 export default {
     components: {
-        PaginatorComp
+        PaginatorComp,
+        CatalogItem
     },
 
     data() {
@@ -28,11 +38,5 @@ export default {
     created() {
         this.$store.dispatch('posts/fetchData')
     },
-
-    methods: {
-        pageDirection(e) {
-            this.currPage = e
-        }
-    }
 }
 </script>

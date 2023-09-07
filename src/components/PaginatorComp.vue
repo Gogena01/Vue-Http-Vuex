@@ -1,14 +1,7 @@
 <template>
     <div>
         <div class="items">
-            <catalog-item v-for="(post, index) in currentPageItems" :class="{ even: pageItem % 2 === 0 }">
-                <template #title>
-                    <h3>{{ post.title }}</h3>
-                </template>
-                <template #button>
-                    <router-link :to="{ name: 'singlePost', params: { id: post.id } }">View Details</router-link>
-                </template>
-            </catalog-item>
+            <slot :currentPageItems="currentPageItems"></slot>
         </div>
         <ul class="controls">
             <li><button :disabled="previousButtonDisabled" @click="changePage(-1)">Previous page</button></li>
@@ -30,14 +23,6 @@ export default {
             type: Array,
             required: true
         },
-        entriesPage: {
-            type: Number,
-            required: true
-        },
-        currentPage: {
-            type: Number,
-            required: true
-        }
     },
 
 

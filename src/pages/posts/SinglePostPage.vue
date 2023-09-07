@@ -22,11 +22,11 @@ export default {
     },
 
     computed: {
-        ...mapGetters(['singlePostData'])
+        ...mapGetters('posts', ['singlePostData'])
     },
 
     created() {
-        this.$store.dispatch('findPost', parseInt(this.id))
+        this.$store.dispatch('posts/findPost', parseInt(this.id))
     }
 }
 </script>
