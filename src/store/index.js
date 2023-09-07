@@ -1,9 +1,8 @@
 import { createStore } from "vuex";
-import postsModule from "./modules/posts/index";
+import postsModule from "./modules/posts";
 import paginatorModule from "./modules/paginator";
 
 const store = createStore({
-    namespaced:true,
     modules: {
         posts:postsModule,
         paginator:paginatorModule

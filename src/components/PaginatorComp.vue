@@ -27,7 +27,7 @@ export default {
     },
     props: {
         elementsCount: {
-            type: Number,
+            type: Array,
             required: true
         },
         entriesPage: {
@@ -43,39 +43,15 @@ export default {
 
     computed: {
           
-        ...mapGetters(['totalPages', 'nextButtonIsDisabled', 'previousButtonDisabled', 'pageOfPages', 'currentPageItems'])
-        // totalPages() {
-        //     return Math.ceil(this.elementsCount.length / this.entriesPage)
-        // },
-
-        // currentPageItems() {
-        //     const startIndex = (this.currentPage - 1) * this.entriesPage;
-        //     return this.elementsCount.slice(startIndex, startIndex + this.entriesPage)
-        // },
-
-        // nextButtonIsDisabled() {
-        //     return this.currentPage === this.totalPages
-        // },
-
-        // previousButtonDisabled() {
-        //     return this.currentPage === 1;
-        // },
-
-        // pageOfPages() {
-        //     return `${this.currentPage} / ${this.totalPages}`
-        // }
+        ...mapGetters(['paginatortotalPages', 'nextButtonIsDisabled', 'previousButtonDisabled', 'pageOfPages', 'currentPageItems'])
+     
     },
 
 
     methods: {
         changePage(direction) {
             this.$store.dispatch('changeDirection', direction)
-            // this.$emit('update:currentPage', this.currentPage + direction)
         },
-
-        // goToPage(page) {
-        //     this.$emit('update:currentPage', page)
-        // }
     }
 
 }
