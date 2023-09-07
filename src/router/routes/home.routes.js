@@ -1,9 +1,10 @@
 export default [
     {
+        name:'home',
         path:'/',
         meta: {
             title:'Home Page'
         },
-        component: () => import('@/pages/HomePage.vue')
+        component: () => import('@/pages/home/HomePage.vue')
     }
 ]

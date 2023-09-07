@@ -7,7 +7,9 @@ const router = createRouter({
     routes:[
         ...routes,
         ...notFound
-    ]
+    ],
+
+    linkActiveClass:'active'
 })
 
 

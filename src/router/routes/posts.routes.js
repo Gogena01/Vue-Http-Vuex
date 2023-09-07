@@ -1,5 +1,6 @@
 export default [
     {
+        name:'posts',
         path: '/posts',
         meta: {
             title: 'Posts Page'

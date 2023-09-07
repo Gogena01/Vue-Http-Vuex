@@ -1,17 +1,19 @@
 <template>
-    <h2>Posts page</h2>
-    <router-view></router-view>
-    <paginator-comp v-if="postsData !== null" :elementsCount="postsData" v-slot="{ currentPageItems }">
-        <catalog-item v-for="(post, index) in currentPageItems">
-            <template #title>
-                <h3>{{ post.title }}</h3>
-            </template>
-            <template #button>
-                <router-link :to="{ name: 'singlePost', params: { id: post.id } }">View Details</router-link>
-            </template>
-        </catalog-item>
-    </paginator-comp>
-    <h2 v-else>Loading...</h2>
+    <div>
+        <h2>Posts page</h2>
+        <router-view></router-view>
+        <paginator-comp v-if="postsData !== null" :elementsCount="postsData" v-slot="{ currentPageItems }">
+            <catalog-item v-for="(post, index) in currentPageItems">
+                <template #title>
+                    <h3>{{ post.title }}</h3>
+                </template>
+                <template #button>
+                    <router-link :to="{ name: 'singlePost', params: { id: post.id } }">View Details</router-link>
+                </template>
+            </catalog-item>
+        </paginator-comp>
+        <h2 v-else>Loading...</h2>
+    </div>
 </template>
 
 <script>
