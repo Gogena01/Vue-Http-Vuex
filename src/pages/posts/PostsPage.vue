@@ -22,11 +22,11 @@ export default {
     },
 
     computed: {
-        ...mapGetters(['postsData'])
+        ...mapGetters('posts', ['postsData'])
     },
 
     created() {
-        this.$store.dispatch('fetchData')
+        this.$store.dispatch('posts/fetchData')
     },
 
     methods: {

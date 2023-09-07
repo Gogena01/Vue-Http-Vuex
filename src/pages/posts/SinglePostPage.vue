@@ -10,9 +10,8 @@
 </template>
 
 <script>
-import ThePost from '../UI/ThePost.vue';
 import { mapGetters } from 'vuex';
-
+import ThePost from '@/UI/ThePost.vue'
 export default {
     components: {
         ThePost

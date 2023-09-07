@@ -41,16 +41,17 @@ export default {
     },
 
 
-    computed: {
-          
-        ...mapGetters(['paginatortotalPages', 'nextButtonIsDisabled', 'previousButtonDisabled', 'pageOfPages', 'currentPageItems'])
-     
+    computed: { 
+        ...mapGetters('paginator', ['paginatortotalPages', 'nextButtonIsDisabled', 'previousButtonDisabled', 'pageOfPages', 'currentPageItems'])   
     },
 
+    created() {
+       this.$store.dispatch('paginator/handleData', this.elementsCount)
+    },
 
     methods: {
         changePage(direction) {
-            this.$store.dispatch('changeDirection', direction)
+            this.$store.dispatch('paginator/changeDirection', direction)
         },
     }
 

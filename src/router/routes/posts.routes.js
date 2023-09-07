@@ -14,7 +14,7 @@ export default [
                 meta: {
                     title:'Single Post'
                 },
-                component:() => import('@/pages/SinglePostPage.vue'),
+                component:() => import('@/pages/posts/SinglePostPage.vue'),
                 props:true
             }
         ],
