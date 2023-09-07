@@ -7,7 +7,7 @@
 
 
 <script>
-import TheNavigation from '../UI/TheNavigation.vue';
+import TheNavigation from '@/components/UI/TheNavigation.vue';
 
 export default {
   components: {

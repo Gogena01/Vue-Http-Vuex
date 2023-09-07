@@ -16,7 +16,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import CatalogItem from '@/UI/CatalogItem.vue';
+import CatalogItem from '@/components/UI/CatalogItem.vue';
 import PaginatorComp from '@/components/PaginatorComp.vue';
 
 export default {
@@ -40,3 +40,10 @@ export default {
     },
 }
 </script>
+
+
+<style scoped>
+h2 {
+    text-align: center;
+}
+</style>

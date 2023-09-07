@@ -11,7 +11,7 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import ThePost from '@/UI/ThePost.vue'
+import ThePost from '@components/UI/ThePost.vue'
 export default {
     components: {
         ThePost

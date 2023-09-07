@@ -12,12 +12,8 @@
 </template>
   
 <script>
-import CatalogItem from '@/UI/CatalogItem.vue';
 import { mapGetters } from 'vuex';
 export default {
-    components: {
-        CatalogItem
-    },
     props: {
         elementsCount: {
             type: Array,
